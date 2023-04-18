@@ -1,10 +1,10 @@
 const ContactsListElement = ({ contacts }) => {
   return (
     <>
-      {contacts.map(({ name, id }) => {
+      {contacts.map(({ name, number, id }) => {
         return (
           <li key={id}>
-            <p>{name}</p>
+            <p>{name}: {number}</p>
           </li>
         );
       })}

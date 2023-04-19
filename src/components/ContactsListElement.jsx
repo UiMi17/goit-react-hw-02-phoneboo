@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const ContactsListElement = ({ contacts, handleDeleteBtnClick }) => {
   return (
     <>
@@ -18,3 +20,8 @@ const ContactsListElement = ({ contacts, handleDeleteBtnClick }) => {
 };
 
 export default ContactsListElement;
+
+ContactsListElement.propTypes = {
+  contacts: PropTypes.array.isRequired,
+  handleDeleteBtnClick: PropTypes.func.isRequired,
+};

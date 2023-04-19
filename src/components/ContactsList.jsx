@@ -1,4 +1,6 @@
+import PropTypes from 'prop-types';
 import ContactsListElement from './ContactsListElement';
+
 
 const ContactsList = ({ contacts, handleDeleteBtnClick }) => {
   return (
@@ -12,3 +14,9 @@ const ContactsList = ({ contacts, handleDeleteBtnClick }) => {
 };
 
 export default ContactsList;
+
+ContactsList.propTypes = {
+  contacts: PropTypes.array.isRequired,
+  handleDeleteBtnClick: PropTypes.func.isRequired,
+};
+

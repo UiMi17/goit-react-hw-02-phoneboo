@@ -1,3 +1,5 @@
+import PropTypes from 'prop-types';
+
 const Filter = ({ handleSearchInputChange }) => {
   return (
     <>
@@ -8,3 +10,7 @@ const Filter = ({ handleSearchInputChange }) => {
 };
 
 export default Filter;
+
+Filter.propTypes = {
+  handleSearchInputChange: PropTypes.func.isRequired,
+};

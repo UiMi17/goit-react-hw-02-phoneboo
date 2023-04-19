@@ -1,9 +1,12 @@
 import ContactsListElement from './ContactsListElement';
 
-const ContactsList = ({ contacts }) => {
+const ContactsList = ({ contacts, handleDeleteBtnClick }) => {
   return (
     <ul>
-      <ContactsListElement contacts={contacts} />
+      <ContactsListElement
+        contacts={contacts}
+        handleDeleteBtnClick={handleDeleteBtnClick}
+      />
     </ul>
   );
 };

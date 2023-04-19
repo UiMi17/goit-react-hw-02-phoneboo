@@ -13,31 +13,34 @@ export class App extends Component {
       { id: 'id-4', name: 'Annie Copeland', number: '227-91-26' },
     ],
     filter: '',
-    name: '',
-    number: '',
   };
 
   createContact = ev => {
-    this.setState(
-      {
-        name: ev.currentTarget.elements.name.value,
-        number: ev.currentTarget.elements.number.value,
-      },
-      () => {
-        this.setState(prevState => {
-          return {
-            contacts: [
-              ...prevState.contacts,
-              {
-                name: this.state.name,
-                number: this.state.number,
-                id: nanoid(),
-              },
-            ],
-          };
-        });
-      }
-    );
+    const { contacts } = this.state;
+    const { name, number } = ev.target.elements;
+    const USERNAME = name.value;
+    const USER_NUMBER = number.value;
+
+    const CONTACTS_NAMES = contacts.map(contact => {
+      return contact.name;
+    });
+
+    if (!CONTACTS_NAMES.includes(USERNAME)) {
+      this.setState(prevState => {
+        return {
+          contacts: [
+            ...prevState.contacts,
+            {
+              name: USERNAME,
+              number: USER_NUMBER,
+              id: nanoid(),
+            },
+          ],
+        };
+      });
+    } else {
+      alert(`${USERNAME} is already in contacts.`);
+    }
   };
 
   handleFormSubmit = ev => {
@@ -47,6 +50,19 @@ export class App extends Component {
 
   handleSearchInputChange = ev => {
     this.setState({ filter: ev.target.value });
+  };
+
+  handleDeleteBtnClick = ev => {
+    const CONTACTS = this.state.contacts;
+    const CONTACT_ID = ev.target.getAttribute('id');
+
+    const CONTACTS_TO_SHOW = CONTACTS.filter(contact => {
+      return contact.id !== CONTACT_ID;
+    });
+
+    this.setState({
+      contacts: CONTACTS_TO_SHOW,
+    });
   };
 
   render() {
@@ -62,7 +78,7 @@ export class App extends Component {
         <Filter handleSearchInputChange={this.handleSearchInputChange} />
         <ContactsList
           contacts={filteredContacts}
-          handleSearchInputChange={this.handleSearchInputChange}
+          handleDeleteBtnClick={this.handleDeleteBtnClick}
         />
       </>
     );

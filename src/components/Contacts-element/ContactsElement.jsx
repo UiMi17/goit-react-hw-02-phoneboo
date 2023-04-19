@@ -1,18 +1,19 @@
 import PropTypes from 'prop-types';
+import { StyledLi, StyledButton } from './StyledContactsElement';
 
 const ContactsListElement = ({ contacts, handleDeleteBtnClick }) => {
   return (
     <>
       {contacts.map(({ name, number, id }) => {
         return (
-          <li key={id}>
+          <StyledLi key={id}>
             <p>
               {name}: {number}
             </p>
-            <button type="button" id={id} onClick={handleDeleteBtnClick}>
+            <StyledButton type="button" id={id} onClick={handleDeleteBtnClick}>
               Delete
-            </button>
-          </li>
+            </StyledButton>
+          </StyledLi>
         );
       })}
     </>

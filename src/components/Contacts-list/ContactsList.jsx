@@ -1,15 +1,16 @@
 import PropTypes from 'prop-types';
-import ContactsListElement from './ContactsListElement';
+import ContactsListElement from '../Contacts-element/ContactsElement';
+import { StyledContactsList } from './StyledContactsList';
 
 
 const ContactsList = ({ contacts, handleDeleteBtnClick }) => {
   return (
-    <ul>
+    <StyledContactsList>
       <ContactsListElement
         contacts={contacts}
         handleDeleteBtnClick={handleDeleteBtnClick}
       />
-    </ul>
+    </StyledContactsList>
   );
 };
 

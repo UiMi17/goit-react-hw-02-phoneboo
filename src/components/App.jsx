@@ -1,8 +1,9 @@
 import React, { Component } from 'react';
 import { nanoid } from 'nanoid';
-import ContactsForm from './ContactsForm';
-import ContactsList from './ContactsList';
-import Filter from './Filter';
+import ContactsForm from './Contacts-form/ContactsForm';
+import ContactsList from './Contacts-list/ContactsList';
+import Filter from './Filter/Filter';
+import { StyledTitle } from './StyledTitle';
 
 export class App extends Component {
   state = {
@@ -74,7 +75,10 @@ export class App extends Component {
 
     return (
       <>
+        <StyledTitle>Phonebook</StyledTitle>
         <ContactsForm handleFormSubmit={this.handleFormSubmit} />
+
+        <StyledTitle>Contacts</StyledTitle>
         <Filter handleSearchInputChange={this.handleSearchInputChange} />
         <ContactsList
           contacts={filteredContacts}

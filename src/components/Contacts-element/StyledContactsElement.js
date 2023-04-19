@@ -6,8 +6,10 @@ export const StyledLi = styled.li`
   align-items: center;
   padding: 16px;
   background-color: #444;
-  margin-bottom: 20px;
   border-radius: 4px;
+  &:not(:last-child) {
+    margin-bottom: 20px;
+  }
 `;
 
 export const StyledButton = styled.button`

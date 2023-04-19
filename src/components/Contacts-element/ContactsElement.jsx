@@ -23,6 +23,6 @@ const ContactsListElement = ({ contacts, handleDeleteBtnClick }) => {
 export default ContactsListElement;
 
 ContactsListElement.propTypes = {
-  contacts: PropTypes.array.isRequired,
+  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
   handleDeleteBtnClick: PropTypes.func.isRequired,
 };

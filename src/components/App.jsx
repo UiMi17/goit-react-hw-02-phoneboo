@@ -54,15 +54,13 @@ export class App extends Component {
   };
 
   handleDeleteBtnClick = ev => {
-    const CONTACTS = this.state.contacts;
     const CONTACT_ID = ev.target.getAttribute('id');
-
-    const CONTACTS_TO_SHOW = CONTACTS.filter(contact => {
-      return contact.id !== CONTACT_ID;
-    });
-
-    this.setState({
-      contacts: CONTACTS_TO_SHOW,
+    this.setState(prevState => {
+      return {
+        contacts: prevState.contacts.filter(
+          contact => contact.id !== CONTACT_ID
+        ),
+      };
     });
   };
 

@@ -1,21 +1,17 @@
 import PropTypes from 'prop-types';
 import { StyledLi, StyledButton } from './StyledContactsElement';
 
-const ContactsListElement = ({ contacts, handleDeleteBtnClick }) => {
+const ContactsListElement = ({ name, number, id, handleDeleteBtnClick }) => {
   return (
     <>
-      {contacts.map(({ name, number, id }) => {
-        return (
-          <StyledLi key={id}>
-            <p>
-              {name}: {number}
-            </p>
-            <StyledButton type="button" id={id} onClick={handleDeleteBtnClick}>
-              Delete
-            </StyledButton>
-          </StyledLi>
-        );
-      })}
+      <StyledLi>
+        <p>
+          {name}: {number}
+        </p>
+        <StyledButton type="button" id={id} onClick={handleDeleteBtnClick}>
+          Delete
+        </StyledButton>
+      </StyledLi>
     </>
   );
 };
@@ -23,6 +19,8 @@ const ContactsListElement = ({ contacts, handleDeleteBtnClick }) => {
 export default ContactsListElement;
 
 ContactsListElement.propTypes = {
-  contacts: PropTypes.arrayOf(PropTypes.object).isRequired,
+  name: PropTypes.string.isRequired,
+  number: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
   handleDeleteBtnClick: PropTypes.func.isRequired,
 };
